@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0e0b">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -35,6 +35,124 @@
 
 
 .auth-overlay{position:fixed;inset:0;z-index:9999;background:radial-gradient(ellipse at top,#17351b 0%,#080d08 55%,#050805 100%);display:grid;place-items:center;padding:18px;overflow:auto}.auth-card{width:min(560px,100%);background:#101710;border:1px solid #345237;border-radius:18px;padding:clamp(20px,4vw,32px);box-shadow:0 25px 90px #0009}.auth-brand{font-size:12px;letter-spacing:2px;color:#80f28b;font-weight:900}.auth-card h1{font-size:clamp(27px,5vw,38px);line-height:1.1;margin:9px 0}.auth-card p{color:#a6b8a6}.auth-tabs{display:flex;gap:8px;margin:18px 0}.auth-tabs button{flex:1}.auth-form{display:grid;gap:13px}.auth-form .field label{color:#b4c8b4}.auth-error{color:#ff9aa5;font-size:13px;min-height:18px}.auth-foot{font-size:11px!important;color:#819581!important;margin-top:15px}.account-chip{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.question-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.question-option{display:block;border:1px solid #38513a;border-radius:11px;padding:12px;background:#0a110a;cursor:pointer}.question-option:has(input:checked){border-color:#55b65e;background:#18351b}.question-option input{width:auto;margin-right:7px;accent-color:#39d353}@media(max-width:480px){.question-options{grid-template-columns:1fr}.auth-card{padding:20px}}
+
+/* Mobile-first refinements */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { min-width: 320px; }
+img, svg, canvas, video { max-width: 100%; }
+button, input, select { touch-action: manipulation; }
+@media (max-width: 700px) {
+  .shell { display: block; min-height: 100dvh; }
+  .sidebar { position: sticky; top: 0; z-index: 50; padding: 10px 12px; gap: 9px; }
+  .brand { gap: 9px; }
+  .brandmark { width: 36px; height: 36px; font-size: 19px; border-radius: 9px; }
+  .brand strong { font-size: 17px; }
+  .brand small { font-size: 11px; }
+  .sidebar nav { display: flex; gap: 6px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding-bottom: 2px; }
+  .sidebar nav::-webkit-scrollbar { display: none; }
+  .sidebar nav button { flex: 0 0 auto; white-space: nowrap; font-size: 13px; padding: 9px 12px; min-height: 40px; }
+  .main { width: 100%; max-width: none; padding: 14px 12px calc(28px + env(safe-area-inset-bottom)); }
+  .top { gap: 8px; margin-bottom: 15px; }
+  .top h1 { font-size: clamp(25px, 7vw, 32px); letter-spacing: -.8px; }
+  .sub { font-size: 13px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .layout, .two { grid-template-columns: minmax(0, 1fr); }
+  .card { padding: 13px; border-radius: 13px; }
+  .card h2 { font-size: 17px; }
+  .stat-value { font-size: clamp(20px, 6vw, 25px); }
+  .rpg-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .rpg-stat { padding: 10px; }
+  .formgrid { grid-template-columns: minmax(0, 1fr); }
+  .field.full { grid-column: auto; }
+  input, select { font-size: 16px; min-height: 44px; }
+  button, .btn { min-height: 40px; }
+  .row { flex-wrap: wrap; }
+  .row.between { justify-content: space-between; }
+  .exercise { grid-template-columns: 24px minmax(0, 1fr); }
+  .exercise > :last-child { grid-column: 2; justify-self: start; }
+  .mealrow, .logrow { align-items: flex-start; }
+  .auth-overlay { padding: 12px; align-items: start; }
+  .auth-card { width: 100%; max-width: 480px; margin: auto; padding: 20px 16px; }
+  .auth-card h1 { font-size: 29px; }
+}
+@media (max-width: 380px) {
+  .main { padding-left: 10px; padding-right: 10px; }
+  .stats { gap: 7px; }
+  .card { padding: 11px; }
+  .sidebar { padding-left: 9px; padding-right: 9px; }
+  .sidebar nav button { padding: 8px 10px; font-size: 12px; }
+}
+
+
+/* Phone-first app layout: deliberately targets touch devices even if their
+   browser reports a wide desktop-like CSS viewport. */
+@media (pointer: coarse) and (hover: none) {
+  html, body { width: 100%; min-width: 0; overflow-x: hidden; }
+  body { font-size: 16px; }
+  .auth-overlay {
+    width: 100%; min-width: 0; padding: 16px !important;
+    display: flex !important; align-items: center !important;
+    justify-content: center !important;
+  }
+  .auth-card {
+    width: 100% !important; max-width: 100% !important;
+    margin: 0 !important; padding: 22px 18px !important;
+    border-radius: 20px !important;
+  }
+  .auth-card h1 { font-size: 30px !important; }
+  .auth-card p { font-size: 15px !important; }
+  .auth-form { gap: 16px !important; }
+  .auth-form input, .auth-form select { min-height: 50px; font-size: 16px !important; }
+  .auth-tabs { gap: 10px; }
+  .auth-tabs button { min-height: 48px; font-size: 15px; }
+  .auth-form button { min-height: 52px; font-size: 16px; }
+
+  .shell { display: block !important; width: 100% !important; min-width: 0; }
+  .sidebar {
+    position: sticky; top: 0; z-index: 100;
+    width: 100%; padding: 12px !important; gap: 10px !important;
+    border-right: 0; border-bottom: 1px solid var(--line);
+  }
+  .brand strong { font-size: 19px; }
+  .sidebar nav {
+    display: flex !important; width: 100%; gap: 8px;
+    overflow-x: auto; white-space: nowrap; padding-bottom: 3px;
+  }
+  .sidebar nav button {
+    flex: 0 0 auto; min-height: 44px; padding: 10px 14px;
+    font-size: 14px; border-radius: 12px;
+  }
+  .main {
+    width: 100% !important; max-width: none !important;
+    margin: 0 !important; padding: 16px 12px calc(30px + env(safe-area-inset-bottom)) !important;
+  }
+  .top { flex-direction: column; align-items: stretch; gap: 8px; margin-bottom: 16px; }
+  .top h1 { font-size: 29px !important; line-height: 1.12; }
+  .sub { font-size: 14px; }
+  .datepill { display: none; }
+  .grid.stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px !important; }
+  .grid.layout, .grid.two { grid-template-columns: minmax(0, 1fr) !important; }
+  .card {
+    min-width: 0; padding: 16px !important; border-radius: 17px !important;
+    box-shadow: 0 5px 18px #0003;
+  }
+  .card h2 { font-size: 19px !important; }
+  .stat { min-height: 112px; display: flex; flex-direction: column; justify-content: center; }
+  .stat-value { font-size: 25px !important; }
+  .rpg-card { padding: 17px !important; border-radius: 18px; }
+  .rpg-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 9px; }
+  .rpg-stat { padding: 13px !important; border-radius: 14px; }
+  .formgrid, .question-options { grid-template-columns: minmax(0, 1fr) !important; }
+  .field.full { grid-column: auto !important; }
+  input, select { min-height: 48px; font-size: 16px !important; }
+  button, .btn { min-height: 44px; }
+  .exercise { grid-template-columns: 24px minmax(0, 1fr) !important; gap: 10px; }
+  .exercise > :last-child { grid-column: 2; justify-self: start; }
+  .mealrow, .logrow { align-items: flex-start; }
+  .row { flex-wrap: wrap; }
+  .toast { left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); }
+}
+
 </style>
 </head>
 <body>
@@ -240,7 +358,7 @@ function download(name,data,type){const url=URL.createObjectURL(new Blob([data],
 $('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b)setPage(b.dataset.page)});
 $('#accountButton').addEventListener('click',async()=>{if(confirm('Log out? Your progress is saved to your account.')){await sb.auth.signOut();activeUser=null;KEY=BASE_KEY;showAuth('login')}});
 $('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
-(async()=>{try{const {data}=await sb.auth.getSession();if(data.session){activeUser=data.session.user;KEY=BASE_KEY+'-'+activeUser.id;await loadCloudState();$('#authOverlay').classList.add('hidden');render();}else showAuth('login');}catch(e){showAuth('login','Could not connect to your account: '+e.message);}})();
+(async()=>{try{const {data}=await sb.auth.getSession();if(data.session){activeUser=data.session.user;KEY=BASE_KEY+'-'+activeUser.id;await loadCloudState();if(!state.profile?.onboarded){showAuth('questionnaire');}else{$('#authOverlay').classList.add('hidden');render();}}else showAuth('login');}catch(e){showAuth('login','Could not connect to your account: '+e.message);}})();
 })();
 </script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
