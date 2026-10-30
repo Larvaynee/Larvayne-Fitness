@@ -243,6 +243,17 @@ input,select { background:#09120c!important; color:#f1f8f2!important; border:1px
 .badge-section{margin:16px 0}.section-title{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:12px}.section-title h3{font-size:22px;margin:3px 0}.badge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.badge-tile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;padding:14px 8px;border-radius:16px;border:1px solid #354b37;background:#121b14;min-width:0}.badge-tile>span{font-size:28px;filter:drop-shadow(0 3px 6px #0008)}.badge-tile b{font-size:12px;color:#e5f4e6}.badge-tile small{font-size:10px;color:#9aaf9d;line-height:1.35}.badge-tile em{font-size:9px;font-style:normal;font-weight:900;letter-spacing:1px;color:#8fe68d;margin-top:3px}.badge-tile.locked{opacity:.48;filter:saturate(.35)}.badge-tile.locked em{color:#89938a}
 @media(max-width:600px){.evolution-card{grid-template-columns:minmax(0,1fr) 105px;padding:16px}.evolution-copy h3{font-size:19px}.avatar-emblem{width:65px;height:65px;font-size:34px;border-radius:21px}.avatar-stage{min-height:125px}.badge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.milestone-card{padding:15px}}
 
+
+/* Focused home dashboard */
+.dashboard-focus{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px;margin:8px 0 14px;border:1px solid #3b6740;border-radius:22px;background:radial-gradient(circle at 90% 20%,#275a31 0,#17291b 38%,#101711 78%);box-shadow:0 12px 28px #0004}
+.focus-copy{min-width:0}.focus-copy h2{font-size:clamp(24px,4vw,34px);margin:7px 0;color:#e9f7e9}.focus-copy p{margin:0 0 17px;color:#a8bda9;font-size:14px}.focus-icon{flex:0 0 76px;width:76px;height:76px;border-radius:24px;display:grid;place-items:center;font-size:38px;background:linear-gradient(145deg,#baff76,#268542);box-shadow:0 0 28px #65e77b44}
+.dashboard-quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.quick-tile{display:flex;align-items:center;gap:12px;text-align:left;padding:17px 15px;border-radius:18px;border:1px solid #2d4431;background:linear-gradient(145deg,#162219,#101711);color:#e9f4e9;min-width:0;cursor:pointer}
+.quick-tile:active{transform:scale(.985)}.quick-icon{width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:#213b25;display:grid;place-items:center;font-size:21px}
+.quick-tile span:nth-child(2){display:flex;flex-direction:column;gap:4px;min-width:0}.quick-tile b{font-size:14px}.quick-tile small{font-size:11px;line-height:1.35;color:#9fb3a0}.quick-tile strong{margin-left:auto;color:#91ec8d;font-size:20px}
+.dashboard-note{padding:14px 16px;margin:12px 0 0;border-left:3px solid #70d879;background:#111b13;border-radius:0 12px 12px 0;color:#9eb49f;font-size:13px}
+@media(max-width:650px){.dashboard-focus{padding:19px}.focus-icon{width:60px;height:60px;flex-basis:60px;font-size:30px;border-radius:19px}.dashboard-quick{grid-template-columns:1fr;gap:9px}.quick-tile{padding:14px}.quick-tile small{font-size:12px}}
+
 </style>
 </head>
 <body>
@@ -468,7 +479,26 @@ function dailyChallengeHTML(){
  </div>`;
 }
 
-function dashboardHTML(){const l=log(),p=state.profile;const goals={fatloss:'Fat loss / getting shredded',muscle:'Muscle building',recomp:'Body recomposition',fitness:'General fitness',strength:'Strength focus'};const route=`<div class="card" style="margin-bottom:14px;border-color:#3b633d"><div class="cardhead"><h2>Your personalised route</h2><span class="pill">${esc(goals[p.goal]||'Balanced fitness')}</span></div><div class="grid two"><div><h3>${p.days||4} training days per week</h3><p class="sub">${p.equipment==='home'?'Home-friendly bodyweight training':p.equipment==='homekit'?'Home training with basic equipment':'Gym-based programme'} · ${esc(p.experience||'beginner')} level</p></div><div><h3>${fmt(p.calorieTarget)} kcal · ${fmt(p.proteinTarget)} g protein</h3><p class="sub">Starting estimates; review trends after 2–3 weeks.</p></div></div><p class="small">Diet: ${esc(p.diet||'none')}${p.limitations?' · Notes: '+esc(p.limitations):''} <button class="btn" data-action="retake-questionnaire">Update questionnaire</button></p></div>`;return route+`${dailyChallengeHTML()}<div class="grid layout"><div class="grid"><div class="card">${panelHead('Weekly plan','<button class="btn" data-action="page" data-value="calendar">Full plan →</button>')}${week.map(d=>`<div class="dayrow"><div class="daytag">${d[0]}</div><span class="dot" style="background:${d[2].includes('Upper')?'#39d353':d[2].includes('Lower')?'#39d49a':d[2]==='Cardio'?'#ffb454':'#8496ad'}"></span><div><div class="dayname">${d[2]}</div><div class="small">${d[3]}</div></div><div class="duration">${d[4]}</div></div>`).join('')}</div><div class="card">${panelHead('Nutrition today','<button class="btn" data-action="page" data-value="nutrition">Log food →</button>')}<div class="targetline"><span>Calories</span><b>${fmt(l.calories)} / ${fmt(p.calorieTarget)} kcal</b></div>${progressBar(l.calories,p.calorieTarget)}<div class="targetline"><span>Protein</span><b>${fmt(l.protein)} / ${fmt(p.proteinTarget)} g</b></div>${progressBar(l.protein,p.proteinTarget)}<div class="targetline"><span>Steps</span><b>${fmt(l.steps)} / ${fmt(p.stepsTarget)}</b></div>${progressBar(l.steps,p.stepsTarget)}<button class="btn primary" style="margin-top:14px" data-action="page" data-value="nutrition">Add a meal</button></div></div><div class="grid"><div class="card">${workoutHTML(true)}</div><div class="card">${panelHead('Progress at a glance','<button class="btn" data-action="page" data-value="progress">Track weight →</button>')}<div class="grid two"><div><div class="stat-label">LATEST WEIGHT</div><div class="stat-value">${fmt(state.weights[state.weights.length-1]?.weight??p.currentWeight)} kg</div></div><div><div class="stat-label">GOAL WEIGHT</div><div class="stat-value">${fmt(p.goalWeight)} kg</div></div></div><p class="footnote">Log weight regularly, keep your protein consistent, and aim for gradual fat loss while maintaining gym performance.</p></div></div></div>`}
+function dashboardHTML(){
+ const l=log(),p=state.profile||{};
+ const todayName=new Date().toLocaleDateString('en-GB',{weekday:'long'});
+ const todayPlan=week.find(d=>String(d[1]||'').toLowerCase()===todayName.toLowerCase())||week[new Date().getDay()===0?6:new Date().getDay()-1]||week[0];
+ const workoutLabel=todayPlan?.[2]||'Training day';
+ const workoutDetail=todayPlan?.[3]||'Open your workout plan to see today’s session.';
+ const caloriesLeft=Math.max(0,(Number(p.calorieTarget)||0)-(Number(l.calories)||0));
+ const proteinLeft=Math.max(0,(Number(p.proteinTarget)||0)-(Number(l.protein)||0));
+ return `
+ <section class="dashboard-focus">
+  <div class="focus-copy"><div class="eyebrow">TODAY'S FOCUS</div><h2>${esc(workoutLabel)}</h2><p>${esc(workoutDetail)}</p><button class="btn primary" data-action="page" data-value="workouts">Open workout <span aria-hidden="true">→</span></button></div>
+  <div class="focus-icon">⚡</div>
+ </section>
+ <div class="dashboard-quick">
+  <button class="quick-tile" data-action="page" data-value="nutrition"><span class="quick-icon">🥗</span><span><b>Nutrition</b><small>${fmt(caloriesLeft)} kcal · ${fmt(proteinLeft)} g protein left</small></span><strong>→</strong></button>
+  <button class="quick-tile" data-action="page" data-value="progress"><span class="quick-icon">📈</span><span><b>Progress</b><small>Weight, steps and achievements</small></span><strong>→</strong></button>
+  <button class="quick-tile" data-action="page" data-value="calendar"><span class="quick-icon">🗓️</span><span><b>Weekly plan</b><small>See your upcoming training days</small></span><strong>→</strong></button>
+ </div>
+ <p class="dashboard-note">Keep it simple: complete today's session, fuel your body and build consistency. Everything else is in its dedicated tab.</p>`;
+}
 
 // Larvayne Fitness RPG-style XP and levels (derived from saved activity)
 function rpgProgress(){
