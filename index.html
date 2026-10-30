@@ -207,6 +207,42 @@ input,select { background:#09120c!important; color:#f1f8f2!important; border:1px
   .toast { bottom:calc(100px + env(safe-area-inset-bottom))!important; }
 }
 
+
+/* Distinct RPG progression and nutrition screens */
+.nutrition-hero,.progress-hero{background:radial-gradient(circle at 90% 5%,#244c2a 0,#142318 38%,#101711 78%);border:1px solid #35563a;border-radius:24px;padding:22px;margin-bottom:14px;box-shadow:0 14px 35px #0005}
+.nutrition-heading,.progress-hero-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.nutrition-heading h2,.progress-hero h2{font-size:25px;margin:5px 0}
+.nutrition-icon{font-size:42px;background:#23452b;border:1px solid #47734a;border-radius:18px;padding:13px}
+.nutrition-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.nutrition-metric{background:#0b120d;border:1px solid #2e4933;border-radius:17px;padding:15px}
+.metric-top{display:flex;flex-direction:column;gap:8px}.metric-top span{color:#b9cdbd;font-weight:700}.metric-top b{font-size:23px;color:#7ee787}.metric-top small{font-size:13px;color:#a5b7a8}
+.nutrition-track,.xp-track,.skill-track{height:9px;background:#26372a;border-radius:20px;overflow:hidden;margin-top:12px}.nutrition-track span,.xp-track span,.skill-track span{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#55d66b,#c4f65b)}
+.protein .nutrition-track span{background:linear-gradient(90deg,#45b9a5,#8cf0cb)}.metric-foot{font-size:12px;color:#91a996;margin-top:8px}
+.nutrition-tiles,.achievement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.nutrition-tile,.achievement-tile{display:flex;flex-direction:column;gap:4px;padding:15px;background:linear-gradient(145deg,#18251a,#101711);border:1px solid #2d4431;border-radius:18px;min-width:0}
+.tile-icon,.achievement-tile>span{font-size:22px}.tile-label,.achievement-tile small{font-size:11px;color:#9caf9f}.nutrition-tile strong,.achievement-tile b{font-size:23px;color:#8be58c}.nutrition-tile small{font-size:11px;color:#94a896}
+.nutrition-layout,.progress-layout{margin-top:14px}.nutrition-form-card{background:#111c13}.nutrition-add{width:100%;min-height:50px}.nutrition-meal{gap:10px}.meal-avatar{width:38px;height:38px;display:grid;place-items:center;background:#203c27;border-radius:12px;flex-shrink:0}.meal-detail{flex:1;min-width:0}.remove-meal{min-width:38px}.nutrition-empty{padding:28px 15px}.nutrition-empty span{font-size:30px;display:block;margin-bottom:8px}.nutrition-empty b{color:#dcefe0}.nutrition-tip{margin-top:14px;background:#121c14}
+.progress-hero{background:radial-gradient(circle at 85% 0%,#244c2a 0,#142318 35%,#0e1510 80%)}
+.level-orb{width:78px;height:78px;flex-shrink:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#baf35e,#48a94e);color:#102014;box-shadow:0 0 0 7px #8de56a22,0 8px 24px #0006}.level-orb span{font-size:10px;font-weight:900}.level-orb strong{font-size:28px;line-height:1}
+.xp-line{display:flex;justify-content:space-between;gap:10px;margin-top:22px;color:#b7d3b8;font-size:13px}.xp-line b{font-size:18px;color:#9bf28c}.skill-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.skill-tile{background:#0b120d;border:1px solid #2d4832;border-radius:17px;padding:13px;display:grid;grid-template-columns:28px 1fr;column-gap:8px;align-items:center}.skill-tile>span{grid-row:span 2;font-size:21px}.skill-tile small{font-size:10px;letter-spacing:1px;color:#a4b9a7}.skill-tile b{font-size:22px;color:#8ee88c}.skill-tile i{font-style:normal;font-size:11px;color:#819886;margin-left:3px}.skill-track{grid-column:1/-1;height:6px;margin-top:9px}
+.achievement-tile{text-align:center;align-items:center;padding:13px 7px}.achievement-tile b{font-size:25px}.weight-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}.weight-summary>div{background:#0c140e;border:1px solid #2a402e;border-radius:13px;padding:11px 8px;min-width:0}.weight-summary small{display:block;font-size:9px;letter-spacing:.8px;color:#92a696}.weight-summary strong{display:block;font-size:20px;color:#8be58c;white-space:nowrap}.weight-summary i{font-size:11px;font-style:normal;color:#9caf9f}
+@media(max-width:600px){.nutrition-hero,.progress-hero{padding:17px;border-radius:20px}.nutrition-heading h2,.progress-hero h2{font-size:22px}.nutrition-metrics{grid-template-columns:1fr}.nutrition-tiles,.achievement-grid{gap:7px}.nutrition-tile{padding:11px 9px}.nutrition-tile strong{font-size:19px}.nutrition-tile small{font-size:10px}.tile-label{font-size:10px}.weight-summary{gap:6px}.weight-summary>div{padding:9px 6px}.weight-summary strong{font-size:17px}}
+
+/* Growing RPG rewards */
+
+.evolution-card{position:relative;overflow:hidden;margin:14px 0;padding:20px;border-radius:22px;border:1px solid #466b3f;background:radial-gradient(circle at 82% 38%,#2d6a34 0,#182d1b 28%,#101711 70%);display:grid;grid-template-columns:minmax(0,1fr) 130px;gap:12px;box-shadow:0 14px 35px #0005}
+.evolution-copy h3{font-size:23px;color:#c8ff9b;margin:6px 0}.evolution-copy p,.milestone-card p{font-size:13px;color:#a8c3aa;max-width:390px;margin:0}
+.avatar-stage{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:145px;isolation:isolate}
+.avatar-aura{position:absolute;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle,#b4ff7b88,#7ee78722 55%,transparent 72%);filter:blur(3px);z-index:-1}
+.avatar-emblem{width:78px;height:78px;border-radius:26px;display:grid;place-items:center;font-size:42px;background:linear-gradient(145deg,#baf56d,#2d853d);border:2px solid #d2ff9a;box-shadow:0 0 28px #80f28b66, inset 0 0 14px #fff5;transform:rotate(-5deg)}
+.stage-2 .avatar-emblem{background:linear-gradient(145deg,#d6f7a2,#3a9e58)}.stage-3 .avatar-emblem{background:linear-gradient(145deg,#d4e6ff,#527caa);border-color:#d5e8ff}.stage-4 .avatar-emblem{background:linear-gradient(145deg,#ffe7a2,#a66a28);border-color:#fff0bb}.stage-5 .avatar-emblem{background:linear-gradient(145deg,#f4e1ff,#9b63d1);border-color:#f7d9ff}
+.avatar-level{font-size:10px;font-weight:900;letter-spacing:1px;color:#d8ffcf;margin-top:12px}
+.evolution-footer{grid-column:1/-1;display:flex;justify-content:space-between;font-size:10px;letter-spacing:1.2px;color:#9eb99f;margin-top:4px}.evolution-footer b{color:#baff8d}.evolution-track{grid-column:1/-1;height:7px;background:#2a3c2c;border-radius:20px;overflow:hidden}.evolution-track span{display:block;height:100%;background:linear-gradient(90deg,#4ebd5a,#d0ff70);border-radius:20px}
+.milestone-card{padding:18px;border:1px solid #3d633f;border-radius:19px;background:linear-gradient(135deg,#17251a,#101711);margin:12px 0}.milestone-card h3{margin:5px 0 6px;color:#d6ffb5;font-size:21px}.milestone-reward{display:flex;align-items:center;gap:12px;margin-top:15px;padding:12px;border-radius:13px;background:#0a120b;border:1px solid #304b33}.milestone-reward>span{font-size:27px}.milestone-reward b,.milestone-reward small{display:block}.milestone-reward small{color:#8fa992;font-size:11px}
+.badge-section{margin:16px 0}.section-title{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:12px}.section-title h3{font-size:22px;margin:3px 0}.badge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.badge-tile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;padding:14px 8px;border-radius:16px;border:1px solid #354b37;background:#121b14;min-width:0}.badge-tile>span{font-size:28px;filter:drop-shadow(0 3px 6px #0008)}.badge-tile b{font-size:12px;color:#e5f4e6}.badge-tile small{font-size:10px;color:#9aaf9d;line-height:1.35}.badge-tile em{font-size:9px;font-style:normal;font-weight:900;letter-spacing:1px;color:#8fe68d;margin-top:3px}.badge-tile.locked{opacity:.48;filter:saturate(.35)}.badge-tile.locked em{color:#89938a}
+@media(max-width:600px){.evolution-card{grid-template-columns:minmax(0,1fr) 105px;padding:16px}.evolution-copy h3{font-size:19px}.avatar-emblem{width:65px;height:65px;font-size:34px;border-radius:21px}.avatar-stage{min-height:125px}.badge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.milestone-card{padding:15px}}
+
 </style>
 </head>
 <body>
@@ -310,34 +346,107 @@ function workoutHTML(compact=false){
 }
 function nutritionHTML(){
  const l=log(),p=state.profile;
- return `<div class="grid layout">
- <div class="card">${panelHead('Nutrition tracker','<span class="pill">Today</span>')}
- <div class="grid two"><div class="stat-label">Calories consumed<div class="stat-value">${fmt(l.calories)} <span class="small">kcal</span></div>${progressBar(l.calories,p.calorieTarget)}</div><div class="stat-label">Protein consumed<div class="stat-value">${fmt(l.protein)} <span class="small">g</span></div>${progressBar(l.protein,p.proteinTarget)}</div></div>
- <div class="targetline"><span>Calories target</span><b>${fmt(p.calorieTarget)} kcal</b></div><div class="targetline"><span>Protein target</span><b>${fmt(p.proteinTarget)} g</b></div>
- <form id="mealForm" class="formgrid" style="margin-top:18px"><div class="field full"><label for="mealName">Food / meal</label><input id="mealName" name="name" required placeholder="e.g. chicken, rice and vegetables"></div><div class="field"><label for="mealCal">Calories (kcal)</label><input id="mealCal" name="calories" type="number" min="0" max="10000" required placeholder="550"></div><div class="field"><label for="mealProtein">Protein (g)</label><input id="mealProtein" name="protein" type="number" min="0" max="500" required placeholder="40"></div><div class="field full"><button class="btn primary">+ Add meal</button></div></form>
- </div>
- <div class="card">${panelHead('Today’s food log',`<button class="btn" data-action="clear-meals">Clear today</button>`)}
- ${l.meals.length?l.meals.map((m,i)=>`<div class="mealrow"><div><b>${esc(m.name)}</b><div class="small">${fmt(m.calories)} kcal · ${fmt(m.protein)} g protein</div></div><button class="btn" data-action="remove-meal" data-index="${i}" aria-label="Remove meal">×</button></div>`).join(''):'<div class="empty">No meals logged yet.<br>Add your first meal to start tracking.</div>'}
- <div class="settingsnote" style="margin-top:14px">Easy protein options: Greek yoghurt, eggs, chicken, lean beef, cottage cheese or a protein shake.</div>
- </div></div>
- <div class="card section">${panelHead('Example day of eating')}<div class="grid two"><div class="mealrow"><div><b>Breakfast</b><div class="small">Greek yoghurt, oats and berries</div></div><span class="pill">Protein</span></div><div class="mealrow"><div><b>Lunch</b><div class="small">Chicken, rice and vegetables</div></div><span class="pill">Balanced</span></div><div class="mealrow"><div><b>Snack</b><div class="small">Protein shake and banana</div></div><span class="pill">Quick</span></div><div class="mealrow"><div><b>Dinner</b><div class="small">Lean meat, potatoes and veg</div></div><span class="pill">Balanced</span></div></div><p class="footnote">Calorie and protein values vary by portion and product. Log actual amounts where possible.</p></div>`;
+ const calPct=Math.min(100,p.calorieTarget?100*l.calories/p.calorieTarget:0);
+ const proPct=Math.min(100,p.proteinTarget?100*l.protein/p.proteinTarget:0);
+ const remaining=Math.max(0,p.calorieTarget-l.calories);
+ return `<div class="nutrition-hero">
+   <div class="nutrition-heading"><div><div class="eyebrow">FUEL YOUR BUILD</div><h2>Today's nutrition</h2><p class="sub">Build consistency one meal at a time.</p></div><span class="nutrition-icon">🥗</span></div>
+   <div class="nutrition-metrics">
+    <div class="nutrition-metric"><div class="metric-top"><span>🔥 Calories</span><b>${fmt(l.calories)} <small>/ ${fmt(p.calorieTarget)}</small></b></div><div class="nutrition-track"><span style="width:${calPct}%"></span></div><div class="metric-foot">${fmt(remaining)} kcal remaining</div></div>
+    <div class="nutrition-metric protein"><div class="metric-top"><span>💪 Protein</span><b>${fmt(l.protein)} <small>/ ${fmt(p.proteinTarget)} g</small></b></div><div class="nutrition-track"><span style="width:${proPct}%"></span></div><div class="metric-foot">${fmt(Math.max(0,p.proteinTarget-l.protein))} g to target</div></div>
+   </div>
+  </div>
+  <div class="nutrition-tiles">
+   <div class="nutrition-tile"><span class="tile-icon">🎯</span><span class="tile-label">Calorie target</span><strong>${fmt(p.calorieTarget)}</strong><small>kcal per day</small></div>
+   <div class="nutrition-tile"><span class="tile-icon">🥩</span><span class="tile-label">Protein target</span><strong>${fmt(p.proteinTarget)}g</strong><small>per day</small></div>
+   <div class="nutrition-tile"><span class="tile-icon">🍽️</span><span class="tile-label">Meals logged</span><strong>${l.meals.length}</strong><small>today</small></div>
+  </div>
+  <div class="grid layout nutrition-layout">
+   <div class="card nutrition-form-card">${panelHead('Add to food log','<span class="pill">QUICK LOG</span>')}
+    <form id="mealForm" class="formgrid"><div class="field full"><label for="mealName">Food / meal</label><input id="mealName" name="name" required placeholder="e.g. chicken, rice and vegetables"></div><div class="field"><label for="mealCal">Calories (kcal)</label><input id="mealCal" name="calories" type="number" min="0" max="10000" required placeholder="550"></div><div class="field"><label for="mealProtein">Protein (g)</label><input id="mealProtein" name="protein" type="number" min="0" max="500" required placeholder="40"></div><div class="field full"><button class="btn primary nutrition-add">＋ Add meal</button></div></form>
+   </div>
+   <div class="card">${panelHead('Today’s food log',`<button class="btn" data-action="clear-meals">Clear today</button>`)}
+    ${l.meals.length?l.meals.map((m,i)=>`<div class="mealrow nutrition-meal"><div class="meal-avatar">🍴</div><div class="meal-detail"><b>${esc(m.name)}</b><div class="small">${fmt(m.calories)} kcal · ${fmt(m.protein)} g protein</div></div><button class="btn remove-meal" data-action="remove-meal" data-index="${i}" aria-label="Remove meal">×</button></div>`).join(''):'<div class="empty nutrition-empty"><span>🍱</span><b>Your food log is empty</b><br>Add your first meal above to start building your daily totals.</div>'}
+   </div>
+  </div>
+  <div class="card nutrition-tip">${panelHead('Fuel tip','<span class="pill">DAILY HABIT</span>')}<p class="sub">Spread protein across your meals. Handy options include Greek yoghurt, eggs, chicken, lean beef, cottage cheese and protein shakes.</p></div>`;
 }
+
+function progressionStats(){
+ const p=state.profile||{}, dates=Object.keys(state.logs||{}), workouts=state.workouts||{};
+ let workoutCount=0,exerciseCount=0,mealsCount=0,proteinDays=0,calorieDays=0,stepDays=0,cardioMinutes=0,dailyChallengeXP=0;
+ Object.values(workouts).forEach(day=>Object.values(day||{}).forEach(arr=>{if(Array.isArray(arr)&&arr.length){workoutCount++;exerciseCount+=arr.length}}));
+ dates.forEach(d=>{const l=state.logs[d]||{},dc=l.dailyChallenge||{};if((Number(dc.pushups)||0)>=100)dailyChallengeXP+=15;if((Number(dc.situps)||0)>=100)dailyChallengeXP+=15;mealsCount+=(l.meals||[]).length;if((l.protein||0)>=(p.proteinTarget||165))proteinDays++;if((l.calories||0)>0&&(l.calories||0)<=(p.calorieTarget||2200)*1.1)calorieDays++;if((l.steps||0)>=(p.stepsTarget||8000))stepDays++;cardioMinutes+=Number(l.cardio)||0;if(l.workout)workoutCount++});
+ const xp=Math.max(0,Math.floor(exerciseCount*10+mealsCount*5+workoutCount*25+proteinDays*20+calorieDays*10+stepDays*15+Math.min(cardioMinutes,600)+dailyChallengeXP));
+ const level=Math.min(99,1+Math.floor(xp/100)),within=level>=99?100:xp%100;
+ const strength=Math.min(99,Math.max(1,1+Math.floor((workoutCount*2+exerciseCount/3)/3)));
+ const discipline=Math.min(99,Math.max(1,1+Math.floor((stepDays+proteinDays+calorieDays)/3)));
+ const nutrition=Math.min(99,Math.max(1,1+Math.floor((mealsCount/3+proteinDays*2+calorieDays)/3)));
+ const endurance=Math.min(99,Math.max(1,1+Math.floor((stepDays+Math.floor(cardioMinutes/30))/3)));
+ return {xp,level,within,workoutCount,exerciseCount,mealsCount,proteinDays,calorieDays,stepDays,cardioMinutes,strength,discipline,nutrition,endurance};
+}
+
 function progressHTML(){
  const p=state.profile,ws=[...state.weights].sort((a,b)=>a.date.localeCompare(b.date)),latest=ws.length?ws[ws.length-1].weight:p.currentWeight,diff=latest-p.startWeight,range=ws.length?Math.max(...ws.map(x=>x.weight))-Math.min(...ws.map(x=>x.weight)):1;
- return `<div class="grid layout"><div class="card">${panelHead('Weight tracker')}
- <div class="grid two"><div class="stat"><div class="stat-label">LATEST WEIGHT</div><div class="stat-value accent-cyan">${fmt(latest)} kg</div></div><div class="stat"><div class="stat-label">CHANGE SINCE START</div><div class="stat-value ${diff<=0?'accent-green':'accent-orange'}">${diff>0?'+':''}${fmt(diff)} kg</div></div></div>
- <form id="weightForm" class="formgrid" style="margin-top:17px"><div class="field"><label for="weightDate">Date</label><input id="weightDate" name="date" type="date" value="${today()}" required></div><div class="field"><label for="weightValue">Weight (kg)</label><input id="weightValue" name="weight" type="number" min="35" max="300" step=".1" placeholder="${fmt(latest)}" required></div><div class="field full"><button class="btn primary">+ Save weigh-in</button></div></form>
- <div class="section">${panelHead('Weight history')}<div class="historybar">${ws.slice(-12).map(w=>{let h=range?Math.max(8,((w.weight-Math.min(...ws.map(x=>x.weight)))/range)*95+15):55;return `<div class="baritem" title="${esc(w.date)}: ${fmt(w.weight)} kg"><div class="barcol" style="height:${h}px"></div><div class="barlabel">${esc(w.date.slice(5))}</div></div>`}).join('')}</div>
- ${ws.slice().reverse().slice(0,8).map((w,i)=>`<div class="logrow"><span>${esc(w.date)}</span><b>${fmt(w.weight)} kg</b><button class="btn" data-action="remove-weight" data-date="${w.date}">Remove</button></div>`).join('')}
- </div></div>
- <div class="card">${panelHead('Your goal')}
- <div class="stat-label">CURRENT → TARGET</div><div class="stat-value">${fmt(latest)} <span class="small">kg</span> <span class="muted">→</span> ${fmt(p.goalWeight)} <span class="small">kg</span></div>
- <div class="targetline"><span>Progress to goal</span><b>${latest<=p.goalWeight?'Goal reached':fmt(Math.max(0,latest-p.goalWeight))+' kg to go'}</b></div>${progressBar(Math.max(0,p.startWeight-latest),Math.max(1,p.startWeight-p.goalWeight))}
- <div class="settingsnote" style="margin-top:16px">Aim for gradual fat loss while keeping your strength. A scale target is only a guide: body-fat level, waist measurements, photos and gym performance matter too.</div>
- <div class="section">${panelHead('Daily activity')}
- <form id="activityForm" class="formgrid"><div class="field"><label for="stepsValue">Steps today</label><input id="stepsValue" name="steps" type="number" min="0" max="100000" value="${l.steps}"></div><div class="field"><label for="workoutMinutes">Cardio minutes today</label><input id="workoutMinutes" name="cardio" type="number" min="0" max="600" value="${l.cardio||0}"></div><div class="field full"><button class="btn primary">Save activity</button></div></form>
- <div class="targetline"><span>Step goal</span><b>${fmt(l.steps)} / ${fmt(p.stepsTarget)}</b></div>${progressBar(l.steps,p.stepsTarget)}</div>
- </div></div>`;
+ const prog=progressionStats(),xp=prog.xp,level=prog.level,next=level>=99?0:100-prog.within;
+ const completed=prog.workoutCount,meals=prog.mealsCount;
+ const strength=prog.strength,nutrition=prog.nutrition,discipline=prog.discipline,endurance=prog.endurance;
+ return `<div class="progress-hero">
+   <div class="progress-hero-top"><div><div class="eyebrow">CHARACTER PROFILE</div><h2>Your progression</h2><p class="sub">Every session, meal and weigh-in moves you forward.</p></div><div class="level-orb"><span>LVL</span><strong>${level}</strong></div></div>
+   <div class="xp-line"><b>${xp} XP</b><span>${next} XP to next level</span></div><div class="xp-track"><span style="width:${level>=99?100:xp%100}%"></span></div>
+   <div class="skill-grid">
+    <div class="skill-tile"><span>⚔️</span><small>STRENGTH</small><b>${strength}<i>/99</i></b><div class="skill-track"><span style="width:${strength}%"></span></div></div>
+    <div class="skill-tile"><span>🛡️</span><small>DISCIPLINE</small><b>${discipline}<i>/99</i></b><div class="skill-track"><span style="width:${discipline}%"></span></div></div>
+    <div class="skill-tile"><span>🥗</span><small>NUTRITION</small><b>${nutrition}<i>/99</i></b><div class="skill-track"><span style="width:${nutrition}%"></span></div></div>
+    <div class="skill-tile"><span>🏃</span><small>ENDURANCE</small><b>${endurance}<i>/99</i></b><div class="skill-track"><span style="width:${endurance}%"></span></div></div>
+   </div>
+  </div>
+  <div class="evolution-card">
+   <div class="evolution-copy"><div class="eyebrow">YOUR FITNESS AVATAR</div><h3>${level>=80?'ASCENDED GUARDIAN':level>=50?'ELITE CHAMPION':level>=25?'IRON WARRIOR':level>=10?'RISING FIGHTER':'THE ROOKIE'}</h3><p>${level>=80?'You have forged a legend through consistency.':level>=50?'Your discipline is becoming your strength.':level>=25?'Your training is building real momentum.':level>=10?'Your journey is taking shape. Keep showing up.':'Every legend starts with one session. Your story begins here.'}</p></div>
+   <div class="avatar-stage stage-${level>=80?'5':level>=50?'4':level>=25?'3':level>=10?'2':'1'}"><div class="avatar-aura"></div><div class="avatar-emblem">${level>=80?'👑':level>=50?'🛡️':level>=25?'⚔️':level>=10?'🔥':'🌱'}</div><div class="avatar-level">LEVEL ${level}</div></div>
+   <div class="evolution-footer"><span>EVOLUTION</span><b>${level>=80?'MYTHIC':level>=50?'ASCENDED':level>=25?'VETERAN':level>=10?'AWAKENED':'AWAKENING'}</b></div>
+   <div class="evolution-track"><span style="width:${level>=99?100:prog.within}%"></span></div>
+  </div>
+  <div class="milestone-card">
+   <div class="eyebrow">NEXT UNLOCK</div><h3>${level<10?'Rising Fighter':level<25?'Iron Warrior':level<50?'Elite Champion':level<80?'Ascended Guardian':'Legendary Aura'}</h3>
+   <p>${next} XP until your next level. Keep logging workouts, meals and activity to earn XP.</p>
+   <div class="milestone-reward"><span>🎁</span><div><b>${level<10?'Awakened avatar':level<25?'Iron armour trim':level<50?'Champion crest':level<80?'Ascended aura':'Mythic crown'}</b><small>Visual evolution reward</small></div></div>
+  </div>
+  <div class="badge-section">
+   <div class="section-title"><div><div class="eyebrow">COLLECTION</div><h3>Achievements</h3></div><span class="pill">${[
+    xp>=100?'First level':'',completed>=1?'First workout':'',meals>=1?'First meal':'',ws.length>=1?'First weigh-in':'',
+    prog.stepDays>=1?'Step quest':'',prog.proteinDays>=1?'Protein streak':''
+   ].filter(Boolean).length} / 6 UNLOCKED</span></div>
+   <div class="badge-grid">
+    ${[
+     ['🌱','First steps','Reach level 2',xp>=100],
+     ['⚔️','First blood','Complete your first workout',completed>=1],
+     ['🍎','Fuelled up','Log your first meal',meals>=1],
+     ['⚖️','Know your numbers','Record your first weigh-in',ws.length>=1],
+     ['👟','On the move','Hit your step target for a day',prog.stepDays>=1],
+     ['💪','Protein power','Hit your protein target for a day',prog.proteinDays>=1]
+    ].map(a=>`<div class="badge-tile ${a[3]?'unlocked':'locked'}"><span>${a[3]?a[0]:'🔒'}</span><b>${a[1]}</b><small>${a[2]}</small><em>${a[3]?'UNLOCKED':'LOCKED'}</em></div>`).join('')}
+   </div>
+  </div>
+  <div class="achievement-grid">
+   <div class="achievement-tile"><span>🏋️</span><b>${completed}</b><small>Workout days logged</small></div>
+   <div class="achievement-tile"><span>🍽️</span><b>${meals}</b><small>Meals recorded</small></div>
+   <div class="achievement-tile"><span>⚖️</span><b>${ws.length}</b><small>Weigh-ins recorded</small></div>
+  </div>
+  <div class="grid layout progress-layout">
+   <div class="card">${panelHead('Weight journey','<span class="pill">BODY METRICS</span>')}
+    <div class="weight-summary"><div><small>CURRENT</small><strong>${fmt(latest)} <i>kg</i></strong></div><div><small>CHANGE</small><strong class="${diff<=0?'accent-green':'accent-orange'}">${diff>0?'+':''}${fmt(diff)} <i>kg</i></strong></div><div><small>GOAL</small><strong>${fmt(p.goalWeight)} <i>kg</i></strong></div></div>
+    <div class="targetline"><span>Journey to goal</span><b>${latest<=p.goalWeight?'Goal reached':fmt(Math.max(0,latest-p.goalWeight))+' kg to go'}</b></div>${progressBar(Math.max(0,p.startWeight-latest),Math.max(1,p.startWeight-p.goalWeight))}
+    <form id="weightForm" class="formgrid" style="margin-top:17px"><div class="field"><label for="weightDate">Date</label><input id="weightDate" name="date" type="date" value="${today()}" required></div><div class="field"><label for="weightValue">Weight (kg)</label><input id="weightValue" name="weight" type="number" min="35" max="300" step=".1" placeholder="${fmt(latest)}" required></div><div class="field full"><button class="btn primary">＋ Save weigh-in</button></div></form>
+   </div>
+   <div class="card">${panelHead('Activity today','<span class="pill">DAILY QUEST</span>')}
+    <form id="activityForm" class="formgrid"><div class="field"><label for="stepsValue">Steps today</label><input id="stepsValue" name="steps" type="number" min="0" max="100000" value="${log().steps}"></div><div class="field"><label for="workoutMinutes">Cardio minutes</label><input id="workoutMinutes" name="cardio" type="number" min="0" max="600" value="${log().cardio||0}"></div><div class="field full"><button class="btn primary">Save activity</button></div></form>
+    <div class="targetline"><span>Step quest</span><b>${fmt(log().steps)} / ${fmt(p.stepsTarget)}</b></div>${progressBar(log().steps,p.stepsTarget)}
+   </div>
+  </div>
+  <div class="card section">${panelHead('Weigh-in history','<span class="pill">${ws.length} ENTRIES</span>')}
+   ${ws.length?`<div class="historybar">${ws.slice(-12).map(w=>{let h=range?Math.max(8,((w.weight-Math.min(...ws.map(x=>x.weight)))/range)*95+15):55;return `<div class="baritem" title="${esc(w.date)}: ${fmt(w.weight)} kg"><div class="barcol" style="height:${h}px"></div><div class="barlabel">${esc(w.date.slice(5))}</div></div>`}).join('')}</div>${ws.slice().reverse().slice(0,8).map(w=>`<div class="logrow"><span>${esc(w.date)}</span><b>${fmt(w.weight)} kg</b><button class="btn" data-action="remove-weight" data-date="${w.date}">Remove</button></div>`).join('')}`:'<div class="empty">Your journey starts with your first weigh-in.</div>'}
+  </div>`;
 }
 function calendarHTML(){return `<div class="grid two">${week.map((d,i)=>`<div class="card"><div class="row between"><span class="pill">${d[0]}</span><span class="small">${d[4]}</span></div><h2 style="margin-top:12px">${d[2]}</h2><div class="sub">${d[3]}</div>${plans[d[2]]?`<button class="btn primary" style="margin-top:14px" data-action="open-day" data-value="${esc(d[2])}">Open workout →</button>`:i===5?'<div class="settingsnote" style="margin-top:14px">Incline treadmill 20–30 min after weights, 2–3 times/week. Saturday bike or cross-trainer 30–40 min.</div>':'<div class="settingsnote" style="margin-top:14px">Keep it easy and focus on recovery.</div>'}</div>`).join('')}</div><div class="card section">${panelHead('Training principles')}<div class="grid two"><div><h3>Progressive overload</h3><p class="sub">When you reach the top of the rep range on every set with good technique, increase weight slightly.</p></div><div><h3>Recovery</h3><p class="sub">Warm up, use controlled reps, sleep well and take rest days seriously.</p></div></div></div>`}
 function settingsHTML(){let p=state.profile;return `<div class="grid layout"><div class="card">${panelHead('Your targets')}<form id="settingsForm" class="formgrid"><div class="field"><label for="startWeight">Starting weight (kg)</label><input id="startWeight" name="startWeight" type="number" min="35" max="300" step=".1" value="${p.startWeight}" required></div><div class="field"><label for="currentWeightInput">Current weight (kg)</label><input id="currentWeightInput" name="currentWeight" type="number" min="35" max="300" step=".1" value="${p.currentWeight}" required></div><div class="field"><label for="goalWeight">Goal weight (kg)</label><input id="goalWeight" name="goalWeight" type="number" min="35" max="300" step=".1" value="${p.goalWeight}" required></div><div class="field"><label for="height">Height (cm)</label><input id="height" name="height" type="number" min="100" max="250" value="${p.height}" required></div><div class="field"><label for="calorieTarget">Daily calorie target</label><input id="calorieTarget" name="calorieTarget" type="number" min="1000" max="6000" step="50" value="${p.calorieTarget}" required></div><div class="field"><label for="proteinTarget">Daily protein target (g)</label><input id="proteinTarget" name="proteinTarget" type="number" min="40" max="350" value="${p.proteinTarget}" required></div><div class="field"><label for="stepsTarget">Daily steps target</label><input id="stepsTarget" name="stepsTarget" type="number" min="1000" max="40000" step="500" value="${p.stepsTarget}" required></div><div class="field"><label for="goalDate">Goal date</label><input id="goalDate" name="goalDate" type="date" value="${esc(p.goalDate)}" required></div><div class="field full"><button class="btn primary">Save targets</button></div></form><p class="footnote">The calorie target is a starting estimate, not a medical prescription. Review your average weight trend after 2–3 weeks.</p></div>
