@@ -157,6 +157,56 @@ button, input, select { touch-action: manipulation; }
 /* Critical auth visibility fix: the login overlay must disappear after sign-in. */
 .auth-overlay.hidden { display: none !important; }
 
+
+/* Larvayne Fitness — RPG/mobile app visual refresh */
+:root { --bg:#070d09; --panel:#101b13; --panel2:#17251a; --line:#263c2c; --text:#f1f8f2; --muted:#9aafa0; --green:#b7f34a; --cyan:#7de69a; }
+body { background: radial-gradient(ellipse at 50% -10%, #183c22 0, #08110b 42%, #060a07 100%); }
+.card, .rpg-card { background:linear-gradient(145deg,#142219,#0d1710); border:1px solid #294431; border-radius:22px; box-shadow:0 12px 30px #0005,inset 0 1px #ffffff08; }
+.card { padding:20px; }
+.stat-value,.rpg-level { color:var(--green); }
+.btn.primary, .primary { background:linear-gradient(135deg,#b9f34b,#70cb39); color:#10200d; border:0; font-weight:850; }
+.pill { background:#1c3822; color:#c5f58a; border:1px solid #38633d; border-radius:999px; padding:5px 10px; }
+.targetline { border-top:1px solid #294431; padding:12px 0; }
+input,select { background:#09120c!important; color:#f1f8f2!important; border:1px solid #34513a!important; border-radius:13px!important; padding:13px!important; }
+.stats .card { min-height:140px; display:flex; flex-direction:column; justify-content:center; }
+.stats .stat-value { font-size:clamp(24px,4vw,34px); }
+.rpg-card { padding:22px; margin-bottom:18px; }
+.rpg-stat { background:#17281b; border:1px solid #2c4b31; border-radius:16px; padding:14px; }
+#pageContent > .card, #pageContent .grid > .card { margin-bottom:14px; }
+#pageContent .cardhead h2 { font-size:20px; }
+.weekbtns { display:flex; gap:8px; overflow-x:auto; padding:4px 0 12px; }
+.weekbtns .btn { flex:0 0 auto; }
+.mealrow,.logrow { border-top:1px solid #294431; padding:13px 0; }
+@media (pointer:coarse) and (hover:none) {
+  .shell { display:block!important; min-height:100dvh; }
+  .sidebar { position:relative!important; top:auto!important; width:100%!important; padding:14px 14px 8px!important; border:0!important; border-bottom:1px solid #294431!important; background:#071009ee!important; }
+  .brand { padding:0 4px 8px!important; }
+  .brandmark { width:46px!important;height:46px!important;border-radius:15px!important; }
+  .brand strong { font-size:21px!important; }
+  .sidebar nav { position:fixed!important; z-index:500; left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom)); width:auto!important; display:flex!important; justify-content:space-around; gap:4px!important; padding:8px!important; border:1px solid #35513b; border-radius:22px; background:#101b13f5; box-shadow:0 12px 35px #000b; backdrop-filter:blur(18px); overflow-x:auto; }
+  .sidebar nav button { flex:1 0 auto!important; min-width:64px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; text-align:center!important; padding:8px 9px!important; min-height:56px!important; border-radius:15px!important; font-size:11px!important; white-space:nowrap; }
+  .main { width:100%!important; max-width:none!important; padding:20px 14px calc(105px + env(safe-area-inset-bottom))!important; margin:0!important; }
+  .top { display:block!important; margin-bottom:18px!important; }
+  .top h1 { font-size:30px!important; line-height:1.12; }
+  .account-chip { display:flex; margin-top:14px; }
+  .stats { grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:10px!important; }
+  .stats .card { min-height:125px; padding:15px!important; border-radius:19px!important; }
+  .stat-label { font-size:11px!important; letter-spacing:.5px; }
+  .stats .stat-value { font-size:25px!important; overflow-wrap:anywhere; }
+  .rpg-card { padding:17px!important; border-radius:22px!important; }
+  .rpg-stats { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+  .layout,.two { grid-template-columns:minmax(0,1fr)!important; }
+  #pageContent .card { padding:17px!important; border-radius:20px!important; }
+  #pageContent .cardhead h2 { font-size:19px!important; }
+  .exercise { grid-template-columns:24px minmax(0,1fr)!important; padding:15px 0!important; }
+  .exercise .duration { grid-column:2; margin-left:0; }
+  .formgrid { grid-template-columns:minmax(0,1fr)!important; }
+  .field.full { grid-column:auto!important; }
+  .btn,button { min-height:44px; }
+  .main .sub { font-size:15px; }
+  .toast { bottom:calc(100px + env(safe-area-inset-bottom))!important; }
+}
+
 </style>
 </head>
 <body>
@@ -333,7 +383,7 @@ function rpgProgress(){
  width('rpgLevelBar',level>=99?100:within);width('rpgStrengthBar',strength);width('rpgDisciplineBar',discipline);width('rpgNutritionBar',nutrition);width('rpgEnduranceBar',endurance);
 }
 
-function render(){const titles={dashboard:['Your shred plan','A steady plan for strength, consistency and progress.'],workouts:['Workout tracker','Choose your session and log each exercise.'],nutrition:['Nutrition tracker','Log meals, calories and protein.'],progress:['Progress tracker','Track weigh-ins, steps and cardio.'],calendar:['Your weekly plan','Four lifting days, cardio and recovery.'],settings:['Settings & backups','Personalise your targets and protect your data.']};$('#pageTitle').textContent=titles[page][0]+'.';$('#pageSub').textContent=titles[page][1];$$('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));const l=log(),p=state.profile;$('#statCalories').textContent=fmt(p.calorieTarget)+' kcal';$('#statProtein').textContent=fmt(p.proteinTarget)+' g';$('#statWeight').textContent=fmt(state.weights[state.weights.length-1]?.weight??p.currentWeight)+' kg';$('#statSteps').textContent=fmt(l.steps)+' / '+fmt(p.stepsTarget);const c=$('#pageContent');c.innerHTML=page==='dashboard'?dashboardHTML():page==='workouts'?`${dailyChallengeHTML()}<div class="grid layout"><div class="card">${workoutHTML()}</div><div class="card">${panelHead('How to progress')}<h3>1. Start with good form</h3><p class="sub">Choose a weight you can control for the prescribed reps.</p><h3>2. Add reps before weight</h3><p class="sub">When every set reaches the top of the rep range, increase the weight by the smallest increment.</p><h3>3. Record your performance</h3><p class="sub">Consistent progress beats changing exercises every week.</p><div class="settingsnote">Stop if you feel sharp pain or dizziness. Ask gym staff to demonstrate unfamiliar equipment.</div></div></div>`:page==='nutrition'?nutritionHTML():page==='progress'?progressHTML():page==='calendar'?calendarHTML():settingsHTML();bind();save();rpgProgress()}
+function render(){const titles={dashboard:['Your shred plan','A steady plan for strength, consistency and progress.'],workouts:['Workout tracker','Choose your session and log each exercise.'],nutrition:['Nutrition tracker','Log meals, calories and protein.'],progress:['Progress tracker','Track weigh-ins, steps and cardio.'],calendar:['Your weekly plan','Four lifting days, cardio and recovery.'],settings:['Settings & backups','Personalise your targets and protect your data.']};$('#pageTitle').textContent=titles[page][0]+'.';$('#pageSub').textContent=titles[page][1];$$('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));const l=log(),p=state.profile;$('#statCalories').textContent=fmt(p.calorieTarget)+' kcal';$('#statProtein').textContent=fmt(p.proteinTarget)+' g';$('#statWeight').textContent=fmt(state.weights[state.weights.length-1]?.weight??p.currentWeight)+' kg';$('#statSteps').textContent=fmt(l.steps)+' / '+fmt(p.stepsTarget);const c=$('#pageContent');$('.stats').style.display=page==='dashboard'?'grid':'none';$('#rpgPanel').style.display=page==='dashboard'?'block':'none';c.innerHTML=page==='dashboard'?dashboardHTML():page==='workouts'?`${dailyChallengeHTML()}<div class="grid layout"><div class="card">${workoutHTML()}</div><div class="card">${panelHead('How to progress')}<h3>1. Start with good form</h3><p class="sub">Choose a weight you can control for the prescribed reps.</p><h3>2. Add reps before weight</h3><p class="sub">When every set reaches the top of the rep range, increase the weight by the smallest increment.</p><h3>3. Record your performance</h3><p class="sub">Consistent progress beats changing exercises every week.</p><div class="settingsnote">Stop if you feel sharp pain or dizziness. Ask gym staff to demonstrate unfamiliar equipment.</div></div></div>`:page==='nutrition'?nutritionHTML():page==='progress'?progressHTML():page==='calendar'?calendarHTML():settingsHTML();bind();save();rpgProgress()}
 function bind(){
  $$('#pageContent [data-action]').forEach(el=>el.addEventListener(el.type==='checkbox'?'change':'click',()=>{
   const a=el.dataset.action,v=el.dataset.value,i=Number(el.dataset.index);
