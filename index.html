@@ -153,6 +153,10 @@ button, input, select { touch-action: manipulation; }
   .toast { left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); }
 }
 
+
+/* Critical auth visibility fix: the login overlay must disappear after sign-in. */
+.auth-overlay.hidden { display: none !important; }
+
 </style>
 </head>
 <body>
